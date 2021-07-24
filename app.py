@@ -9,12 +9,12 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def hello():
     return render_template('index.html')
 
 
-@app.route('/predict', methods = ['GET','POST'])
+@app.route('/', methods = ['POST'])
 def upload_file():
 	if request.method == 'POST':
 		img = request.files['image']
@@ -34,7 +34,7 @@ def upload_file():
 			'image' : "static/" + img.filename,
 			'description' : caption
 		}
-	return render_template('predict.html', results = result_dic)
+	return render_template('index.html', results = result_dic)
 
 
 
