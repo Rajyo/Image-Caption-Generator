@@ -8,12 +8,12 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods==['GET'])
 def hello():
     return render_template('index.html')
 
 
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['GET','POST'])
 def upload_file():
 	if request.method == 'POST':
 		img = request.files['image']
