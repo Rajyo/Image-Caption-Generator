@@ -1,4 +1,3 @@
-from http.client import METHOD_NOT_ALLOWED
 from flask import Flask, render_template, url_for, request, redirect
 from caption import *
 import warnings
@@ -9,12 +8,12 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello():
     return render_template('index.html')
 
 
-@app.route('/', methods = ['POST'])
+@app.route('/predict', methods = ['GET','POST'])
 def upload_file():
 	if request.method == 'POST':
 		img = request.files['image']
