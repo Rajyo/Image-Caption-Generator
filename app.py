@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore")
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def hello():
     return render_template('index.html')
 
